@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Test Maker By: RashiD</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;600&family=Pacifico&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1b2333;--mu:#64708a;--pr:#1e6bd6;--bd:#dde3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151f;--card:#192130;--tx:#e8edf7;--mu:#93a0ba;--pr:#5b9bff;--bd:#2a3550}}
+:root[data-theme="dark"]{--bg:#10151f;--card:#192130;--tx:#e8edf7;--mu:#93a0ba;--pr:#5b9bff;--bd:#2a3550}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:14px/1.45 Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 10px;cursor:pointer}
+button.pr{background:var(--pr);color:#fff;border-color:var(--pr)}button.sm{padding:2px 7px}
+input,textarea,select{font:inherit;width:100%;box-sizing:border-box;border:1px solid var(--bd);border-radius:6px;padding:6px;background:var(--bg);color:var(--tx)}
+.ur,textarea.ur,input.ur{font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu','Noto Naskh Arabic',serif;direction:rtl;line-height:2}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;background:var(--card);border-bottom:1px solid var(--bd)}
+.bar select,.bar input[type=checkbox]{width:auto}.bar label{display:flex;gap:4px;align-items:center}
+.app{display:grid;grid-template-columns:minmax(360px,480px) 1fr;gap:16px;padding:12px;align-items:start}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px;margin-bottom:10px}
+.g2,#mf{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.qt{display:flex;gap:6px;align-items:center;margin-bottom:6px}.sp{flex:1}.mn{width:70px}
+.orow{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:4px;align-items:center;margin:3px 0}.orow input[type=radio]{width:auto}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:6px 0;padding-bottom:6px;border-bottom:1px dashed var(--bd)}.mrow>div{grid-column:1/3}
+.th{display:inline-block}.th img{height:34px;vertical-align:middle;border-radius:4px}
+.mu{color:var(--mu)}.tabs{display:none}
+.brand{font:400 24px Pacifico,cursive;background:linear-gradient(90deg,#1e6bd6,#e0457b);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;padding:0 4px}.brand small{font:italic 700 14px 'Playfair Display',serif}
+#mic{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:21;display:none;width:52px;height:52px;border-radius:50%;font-size:22px;padding:0;background:var(--pr);color:#fff;border-color:var(--pr);box-shadow:0 2px 8px #0005}#mic.on{display:block}#mic.rec{background:#d93025;border-color:#d93025;animation:pl 1s infinite}@keyframes pl{50%{opacity:.6}}body.kbo #mic{bottom:290px}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#222;color:#fff;padding:8px 14px;border-radius:20px;z-index:30;display:none;max-width:90%}
+.pvw{overflow-x:auto}
+.paper{background:#fff;color:#000;max-width:210mm;margin:0 auto;padding:12mm;box-shadow:0 2px 14px #0003;font:13px/1.5 Georgia,'Times New Roman',serif;box-sizing:border-box}
+.paper.u{direction:rtl}.paper .ur{font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif;direction:rtl}
+.paper .row{display:flex;justify-content:space-between;gap:14px}.row>div{flex:1;white-space:pre-wrap}.row>.ur{text-align:right}
+.paper div{white-space:pre-wrap}
+.ph{text-align:center;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:8px}.sch{font-size:18px;font-weight:700}.tt{font-size:15px;font-weight:700}
+.info{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 14px;margin:6px 0;font-weight:700}
+.sh{font-weight:700;margin:12px 0 4px;border-bottom:1px solid #000}
+.q{margin:6px 0;break-inside:avoid}.qh{display:flex;gap:6px}.qb{flex:1}.mk{font-size:11px;color:#444}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin:2px 22px}.op{display:flex;gap:5px;align-items:center}
+.ln{border-bottom:1px solid #777;height:26px}
+.mt{width:100%;border-collapse:collapse;margin:4px 0}.mt td,.mt th{border:1px solid #000;padding:4px 6px}.an{width:50px}
+.cl{display:flex;gap:6px;align-items:center}.cl>div{flex:1}
+img.qi{max-height:130px;max-width:60%;display:block;margin:4px 0}img.oi{height:42px;margin:0 4px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.tabs{display:flex}.pvw{display:none}body.pv .pvw{display:block}body.pv .edit{display:none}}
+.L-boxed{border:3px double #000}.L-modern .ph{background:#1e3a8a;color:#fff;padding:8px;border:0;border-radius:6px}.L-modern .sh{background:#e8eefc;padding:2px 6px;border:0;border-left:4px solid #1e3a8a}.L-compact{font-size:11.5px;line-height:1.3}.L-compact .ln{height:20px}.L-compact .q{margin:2px 0}.L-compact .sh{margin:7px 0 3px}.L-twocol .bd{column-count:2;column-gap:8mm}.L-twocol .opts{grid-template-columns:1fr}.L-twocol .sh{break-after:avoid}
+#kb{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--bd);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));display:none;direction:ltr}#kb.on{display:block}body.kbo{padding-bottom:270px}#kb div{display:flex;gap:4px;margin:3px 0;justify-content:center}#kb button{flex:1;max-width:44px;padding:6px 0;font:18px 'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif}#kb .w{max-width:none;flex:3}
+@media print{.bar,.edit,#kb,#mic,#toast{display:none!important}.pvw{display:block!important;overflow:visible}.app{display:block;padding:0}.paper{box-shadow:none;padding:0;max-width:none}@page{size:A4;margin:12mm}}
+</style></head><body>
+<div class="bar">
+<span class="brand">Test Maker <small>By: RashiD</small></span>
+<button onclick="add('mcq')">+ MCQ</button><button onclick="add('sq')">+ Short Q</button><button onclick="add('lq')">+ Long Q</button><button onclick="add('fib')">+ Fill blanks</button><button onclick="add('match')">+ Match</button>
+<select id="lang" data-m="meta.lang"><option value="both">English + اردو</option><option value="en">English only</option><option value="ur">اردو only</option></select>
+<select id="lay" data-m="meta.layout"><option value="classic">Layout: Classic</option><option value="boxed">Boxed</option><option value="modern">Modern</option><option value="compact">Compact</option><option value="twocol">Two columns</option></select><label><input type="checkbox" id="key" onchange="prev()"> Answer key</label><button id="kbt" onclick="kbTog()">⌨ اردو: auto</button>
+<button class="pr" onclick="window.print()">🖨 Print / PDF</button>
+<span class="tabs"><button onclick="document.body.classList.remove('pv')">✏️ Edit</button><button onclick="document.body.classList.add('pv')">👁 Preview</button></span>
+</div>
+<div class="app">
+<div class="edit">
+<div class="card"><b>Paper details</b><div id="mf" style="margin-top:6px"></div><div class="mu" id="tot" style="margin-top:6px"></div></div>
+<div id="list"></div>
+<div class="card"><details><summary>Backup / restore / new</summary>
+<textarea id="bk" rows="4" placeholder="Export fills this box. Paste a saved backup here to import."></textarea>
+<p><button onclick="bk.value=JSON.stringify(D)">Export</button> <button onclick="imp()">Import</button> <button id="nw" onclick="nw()">New test</button> <button onclick="fontPick()">🔤 Load Urdu font file (.ttf)</button></p></details></div>
+</div>
+<div class="pvw"><div id="paper" class="paper"></div></div><div id="kb"></div><button id="mic" title="Voice typing: tap to start / stop">🎤</button><div id="toast"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const get=(o,p)=>p.split('.').reduce((a,k)=>a?.[k],o);
+const set=(o,p,v)=>{const a=p.split('.'),l=a.pop();get(o,a.join('.')||'')&&0;const t=a.reduce((x,k)=>x[k],o);t[l]=v};
+const mk=t=>{const q={t,en:'',ur:'',marks:1,imgs:{}};if(t=='mcq'){q.opts=[0,1,2,3].map(_=>({en:'',ur:''}));q.ans=0}
+ if(t=='fib')q.key={en:'',ur:''};if(t=='sq'||t=='lq'){q.marks=t=='sq'?2:5;q.lines=t=='sq'?2:6;q.parts=[]}if(t=='match'){q.marks=4;q.seed=1;q.pairs=[0,1,2,3].map(_=>({le:'',lu:'',re:'',ru:''}))}return q};
+function sample(){const m=mk('mcq');m.en='The capital of Pakistan is ____.';m.ur='پاکستان کا دارالحکومت ____ ہے۔';
+ [['Lahore','لاہور'],['Islamabad','اسلام آباد'],['Karachi','کراچی'],['Quetta','کوئٹہ']].forEach((o,i)=>{m.opts[i].en=o[0];m.opts[i].ur=o[1]});m.ans=1;
+ const c=mk('sq');c.en='Write a few lines about your school.';c.ur='اپنے اسکول کے بارے میں چند سطریں لکھیں۔';
+ const x=mk('match');x.en='Match the cities with their provinces.';x.ur='شہروں کو ان کے صوبوں سے ملائیں۔';
+ [['Lahore','لاہور','Punjab','پنجاب'],['Karachi','کراچی','Sindh','سندھ'],['Peshawar','پشاور','Khyber Pakhtunkhwa','خیبر پختونخوا'],['Quetta','کوئٹہ','Balochistan','بلوچستان']].forEach((r,i)=>x.pairs[i]={le:r[0],lu:r[1],re:r[2],ru:r[3]});
+ return{meta:{school:'Your School Name',schoolU:'آپ کے اسکول کا نام',title:'Monthly Test',titleU:'ماہانہ ٹیسٹ',cls:'5',sub:'General Knowledge / عمومی معلومات',date:'',time:'30 min',lang:'both',layout:'classic'},
+ sec:{mcq:{en:'Choose the correct option.',ur:'درست جواب منتخب کریں۔'},fib:{en:'Fill in the blanks.',ur:'خالی جگہیں پُر کریں۔'},sq:{en:'Write short answers to the following questions.',ur:'مختصر جوابات لکھیں۔',att:''},lq:{en:'Answer the following questions in detail.',ur:'تفصیلی جوابات لکھیں۔',att:''},match:{en:'Match Column A with Column B.',ur:'کالم الف کو کالم ب سے ملائیں۔'}},qs:[m,c,x]}}
+let D;try{D=JSON.parse(localStorage.getItem('tm1'))}catch(e){}const blank=()=>({meta:{...sample().meta,school:'',schoolU:'',title:'',titleU:'',sub:'',cls:'',time:''},sec:sample().sec,qs:[]});function mig(){if(D&&D.meta&&D.meta.school=='Your School Name')D=null;D=D||blank();D.qs.forEach(q=>{if(q.t=='crq'){q.t='sq';q.parts=[]}});const s=sample().sec;D.sec.sq=D.sec.sq||{...s.sq,...(D.sec.crq||{})};D.sec.lq=D.sec.lq||s.lq;D.sec.fib=D.sec.fib||s.fib;D.meta.layout=D.meta.layout||'classic'}mig();
+const save=()=>{try{localStorage.setItem('tm1',JSON.stringify(D))}catch(e){}};
+const L=()=>D.meta.lang,lb=(e,u)=>L()=='en'?e:L()=='ur'?u:e+' / '+u;
+const MF=[['meta.school','School name'],['meta.schoolU','اسکول کا نام',1],['meta.title','Test title'],['meta.titleU','ٹیسٹ کا عنوان',1],['meta.cls','Class'],['meta.sub','Subject'],['meta.date','Date'],['meta.time','Time allowed'],['sec.mcq.en','MCQ instruction'],['sec.mcq.ur','MCQ ہدایت',1],['sec.fib.en','Fill-in-the-blanks instruction'],['sec.fib.ur','خالی جگہ ہدایت',1],['sec.sq.en','Short Qs instruction'],['sec.sq.ur','مختصر سوالات ہدایت',1],['sec.sq.att','Short Qs: attempt any (number)'],['sec.lq.en','Long Qs instruction'],['sec.lq.ur','تفصیلی سوالات ہدایت',1],['sec.lq.att','Long Qs: attempt any (number)'],['sec.match.en','Match instruction'],['sec.match.ur','ملاپ ہدایت',1]];
+$('mf').innerHTML=MF.map(([p,ph,u])=>`<input data-m="${p}" class="${u?'ur':''}" placeholder="${ph}">`).join('');
+function bi(en,ur,c=''){en=en||'';ur=ur||'';const l=L();
+ if(l=='en')return`<div class="${c}">${E(en||ur)}</div>`;
+ if(l=='ur')return`<div class="ur ${c}">${E(ur||en)}</div>`;
+ return`<div class="row ${c}"><div>${E(en)}</div><div class="ur">${E(ur)}</div></div>`}
+const im=(q,k,c='qi')=>q.imgs[k]?`<img class="${c}" src="${q.imgs[k]}">`:'';
+function perm(n,s){const a=[...Array(n).keys()];let x=s*9301+49297;for(let i=n-1;i>0;i--){x=(x*9301+49297)%233280;const j=Math.floor(x/233280*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function qh(q,n){const hd=`<div class="qh"><b>${n}.</b><div class="qb">${bi(q.en,q.ur)}${im(q,'q')}</div><span class="mk">[${q.marks}]</span></div>`;
+ if(q.t=='mcq')return`<div class="q">${hd}<div class="opts">${q.opts.map((o,j)=>`<div class="op"><b>${'ABCDEF'[j]}.</b>${im(q,'o'+j,'oi')}<div style="flex:1">${bi(o.en,o.ur)}</div></div>`).join('')}</div></div>`;
+ if(q.t=='fib')return`<div class="q">${hd}</div>`;if(q.t=='sq'||q.t=='lq')return`<div class="q">${hd}${(q.parts||[]).map((p,j)=>`<div class="qh" style="margin-inline-start:22px"><b>(${'abcdefgh'[j]})</b><div class="qb">${bi(p.en,p.ur)}</div></div>${'<div class="ln"></div>'.repeat(q.lines||0)}`).join('')||'<div class="ln"></div>'.repeat(q.lines||0)}</div>`;
+ const o=perm(q.pairs.length,q.seed);
+ return`<div class="q">${hd}<table class="mt"><tr><th>${lb('Column A','کالم الف')}</th><th class="an">${lb('Ans','جواب')}</th><th>${lb('Column B','کالم ب')}</th></tr>`+
+ q.pairs.map((p,i)=>{const r=q.pairs[o[i]];return`<tr><td><div class="cl"><b>${i+1}.</b>${im(q,'l'+i,'oi')}<div>${bi(p.le,p.lu)}</div></div></td><td></td><td><div class="cl"><b>${'abcdefgh'[i]}.</b>${im(q,'r'+o[i],'oi')}<div>${bi(r.re,r.ru)}</div></div></td></tr>`}).join('')+'</table></div>'}
+function prev(){const m=D.meta,sm=t=>{const qs=D.qs.filter(q=>q.t==t),s=qs.reduce((a,q)=>a+(+q.marks||0),0),a=+(D.sec[t]&&D.sec[t].att);return a&&a<qs.length?Math.round(s/qs.length*a*10)/10:s},tot=['mcq','fib','sq','lq','match'].reduce((a,t)=>a+sm(t),0);
+ $('tot').textContent=`${D.qs.length} questions · total marks ${tot}`;
+ $('paper').className='paper L-'+(m.layout||'classic')+(L()=='ur'?' u':'');
+ let h=`<div class="ph">${bi(m.school,m.schoolU,'sch')}${bi(m.title,m.titleU,'tt')}</div><div class="info"><span>${lb('Class','جماعت')}: ${E(m.cls)}</span><span>${lb('Subject','مضمون')}: ${E(m.sub)}</span><span>${lb('Date','تاریخ')}: ${E(m.date)}</span><span>${lb('Time','وقت')}: ${E(m.time)}</span><span>${lb('Total Marks','کل نمبر')}: ${tot}</span></div><div class="info"><span>${lb('Name','نام')}: ____________________</span><span>${lb('Roll No','رول نمبر')}: ________</span></div>`;
+ let n=0,key='';
+ h+='<div class="bd">';for(const t of['mcq','fib','sq','lq','match']){const qs=D.qs.filter(q=>q.t==t);if(!qs.length)continue;n++;const s=sm(t),at=+D.sec[t].att,ap=at&&at<qs.length;
+  h+=bi(`Q.${n} ${D.sec[t].en}${ap?` Attempt any ${at} of ${qs.length}.`:''} (${s} marks)`,`سوال ${n}: ${D.sec[t].ur}${ap?` کل ${qs.length} میں سے کوئی ${at} حل کریں۔`:''} (${s} نمبر)`,'sh');qs.forEach((q,j)=>h+=qh(q,j+1));
+  if(t=='fib')key+=`<p><b>Q.${n} Fill in the blanks:</b> ${qs.map((q,j)=>`${j+1}-${E(L()=='ur'?q.key.ur||q.key.en:q.key.en||q.key.ur)}`).join(', ')}</p>`;if(t=='mcq')key+=`<p><b>Q.${n} MCQs:</b> ${qs.map((q,j)=>`${j+1}-${'ABCDEF'[q.ans]}`).join(', ')}</p>`;
+  if(t=='match')key+=`<p><b>Q.${n} Match:</b> ${qs.map((q,j)=>{const o=perm(q.pairs.length,q.seed);return`(${j+1}) `+q.pairs.map((_,i)=>`${i+1}-${'abcdefgh'[o.indexOf(i)]}`).join(', ')}).join(' &nbsp; ')}</p>`}
+ h+='</div>';if($('key').checked)h+=`<div style="page-break-before:always"><b>Answer Key / جوابات</b>${key}</div>`;
+ $('paper').innerHTML=h}
+const TN={fib:'Fill in the blank',mcq:'MCQ',sq:'Short question',lq:'Long question',match:'Match columns'};
+function card(q,i){const d=`data-i="${i}"`;
+ const T=(p,v,u,ph)=>`<textarea rows="2" ${d} data-p="${p}" class="${u?'ur':''}" placeholder="${ph}">${E(v)}</textarea>`;
+ const I=(p,v,u,ph)=>`<input ${d} data-p="${p}" class="${u?'ur':''}" placeholder="${ph}" value="${E(v)}">`;
+ const B=(k,t='🖼')=>`<button class="sm" data-act="img" ${d} data-k="${k}" title="Add picture">${t}</button>`+(q.imgs[k]?`<span class="th"><img src="${q.imgs[k]}"><button class="sm" data-act="rmimg" ${d} data-k="${k}">✕</button></span>`:'');
+ let b=`<div class="g2">${T('en',q.en,0,'Question (English)')}${T('ur',q.ur,1,'سوال (اردو)')}</div><div style="margin:4px 0">${B('q','🖼 Add picture')}</div>`;
+ if(q.t=='mcq')b+=q.opts.map((o,j)=>`<div class="orow"><input type="radio" name="a${i}" ${d} data-p="ans" data-n="1" value="${j}" ${q.ans==j?'checked':''} title="Correct answer">${I(`opts.${j}.en`,o.en,0,'Option '+'ABCDEF'[j])}${I(`opts.${j}.ur`,o.ur,1,'اختیار')}<span>${B('o'+j)}</span></div>`).join('')+`<button class="sm" data-act="ao" ${d}>+ option</button> <button class="sm" data-act="xo" ${d}>− option</button> <span class="mu">◉ = correct</span>`;
+ if(q.t=='fib')b+=`<div class="mu">Type ____ where the blank goes.</div><div class="g2">${I('key.en',q.key.en,0,'Answer (English)')}${I('key.ur',q.key.ur,1,'جواب (اردو)')}</div>`;if(q.t=='sq'||q.t=='lq')b+=(q.parts||[]).map((p,j)=>`<div class="g2" style="margin:4px 0">${I(`parts.${j}.en`,p.en,0,'Part ('+'abcdefgh'[j]+') English')}${I(`parts.${j}.ur`,p.ur,1,'حصہ ('+'abcdefgh'[j]+')')}</div>`).join('')+`<button class="sm" data-act="apt" ${d}>+ part (a, b, c…)</button> <button class="sm" data-act="xpt" ${d}>− part</button> <label>Lines${(q.parts||[]).length?' per part':''} <input type="number" min="0" max="15" class="mn" ${d} data-p="lines" data-n="1" value="${q.lines}"></label>`;
+ if(q.t=='match')b+=q.pairs.map((p,j)=>`<div class="mrow">${I(`pairs.${j}.le`,p.le,0,`A${j+1} English`)}${I(`pairs.${j}.lu`,p.lu,1,`الف ${j+1}`)}${I(`pairs.${j}.re`,p.re,0,`B${j+1} English`)}${I(`pairs.${j}.ru`,p.ru,1,`ب ${j+1}`)}<div>A: ${B('l'+j)} &nbsp; B: ${B('r'+j)}</div></div>`).join('')+`<button class="sm" data-act="ap" ${d}>+ pair</button> <button class="sm" data-act="xp" ${d}>− pair</button> <button class="sm" data-act="rs" ${d}>🔀 reshuffle B</button>`;
+ return`<div class="card"><div class="qt"><b>${i+1}. ${TN[q.t]}</b><label>Marks <input type="number" min="0" step="0.5" class="mn" ${d} data-p="marks" data-n="1" value="${q.marks}"></label><span class="sp"></span><button class="sm" data-act="up" ${d}>↑</button><button class="sm" data-act="dn" ${d}>↓</button><button class="sm" data-act="dup" ${d}>⧉</button><button class="sm" data-act="del" ${d}>✕</button></div>${b}</div>`}
+function edit(){$('list').innerHTML=D.qs.map(card).join('')||'<p class="mu">No questions yet. Use the buttons above.</p>';prev();applyIM()}
+function init(){document.querySelectorAll('[data-m]').forEach(el=>el.value=get(D,el.dataset.m)||'');edit()}
+function add(t){D.qs.push(mk(t));save();edit();const l=$('list').lastElementChild;l&&l.scrollIntoView({block:'center'})}
+document.addEventListener('input',e=>{const t=e.target;
+ if(t.dataset.m){set(D,t.dataset.m,t.value)}else if(t.dataset.i!=null){set(D.qs[t.dataset.i],t.dataset.p,t.dataset.n?+t.value:t.value)}else return;save();prev()});
+const A={up:(q,i)=>i&&([D.qs[i-1],D.qs[i]]=[q,D.qs[i-1]]),dn:(q,i)=>{if(i<D.qs.length-1)[D.qs[i+1],D.qs[i]]=[q,D.qs[i+1]]},dup:(q,i)=>D.qs.splice(i+1,0,JSON.parse(JSON.stringify(q))),del:(q,i)=>D.qs.splice(i,1),
+ ao:q=>{if(q.opts.length<6)q.opts.push({en:'',ur:''})},xo:q=>{if(q.opts.length>2){delete q.imgs['o'+(q.opts.length-1)];q.opts.pop();q.ans=Math.min(q.ans,q.opts.length-1)}},
+ ap:q=>{if(q.pairs.length<8)q.pairs.push({le:'',lu:'',re:'',ru:''})},xp:q=>{if(q.pairs.length>2){const k=q.pairs.length-1;delete q.imgs['l'+k];delete q.imgs['r'+k];q.pairs.pop()}},
+ rs:q=>{q.seed=Math.floor(Math.random()*9999)+1},apt:q=>{q.parts=q.parts||[];if(q.parts.length<8)q.parts.push({en:'',ur:''})},xpt:q=>{(q.parts||[]).pop()},rmimg:(q,i,k)=>{delete q.imgs[k]}};
+$('list').onclick=e=>{const b=e.target.closest('[data-act]');if(!b)return;const i=+b.dataset.i,a=b.dataset.act,k=b.dataset.k;
+ if(a=='img')return pick(i,k);A[a](D.qs[i],i,k);save();edit()};
+function pick(i,k){const f=document.createElement('input');f.type='file';f.accept='image/*';
+ f.onchange=()=>{if(!f.files[0])return;const r=new FileReader();r.onload=()=>{const g=new Image();g.onload=()=>{const s=Math.min(1,640/g.width),c=document.createElement('canvas');c.width=g.width*s;c.height=g.height*s;
+  const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(g,0,0,c.width,c.height);D.qs[i].imgs[k]=c.toDataURL('image/jpeg',.82);save();edit()};g.src=r.result};r.readAsDataURL(f.files[0])};f.click()}
+function imp(){try{const o=JSON.parse($('bk').value);if(!o.qs||!o.meta)throw 0;D=o;mig();save();init()}catch(e){$('bk').value='Invalid backup text.'}}
+let KBon=true,cur=null;const KR=['ا آ ب پ ت ٹ ث ج چ ح خ','د ڈ ذ ر ڑ ز ژ س ش ص ض','ط ظ ع غ ف ق ک گ ل م ن','و ہ ھ ء ی ے ں ئ ۃ ً ٔ','۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۔ ، ؟ ؛ ( )'];
+$('kb').innerHTML=KR.map(r=>`<div>${r.split(' ').map(c=>`<button data-c="${c}">${c}</button>`).join('')}</div>`).join('')+'<div><button class="w" data-c=" ">␣ space</button><button data-c="⌫">⌫</button><button data-c="↵">↵</button><button data-c="✕">✕</button></div>';
+const kbShow=on=>{$('kb').classList.toggle('on',!!on);document.body.classList.toggle('kbo',!!on)};
+$('kb').onmousedown=e=>e.preventDefault();
+$('kb').onclick=e=>{const b=e.target.closest('[data-c]');if(!b||!cur)return;const c=b.dataset.c;if(c=='✕')return kbShow(0);
+ if(c=='⌫'){const a=cur.selectionStart,z=cur.selectionEnd;if(a!=z)cur.setRangeText('',a,z,'end');else if(a>0)cur.setRangeText('',a-1,a,'end')}
+ else if(c=='↵'&&cur.tagName!='TEXTAREA')return;else cur.setRangeText(c=='↵'?'\n':c,cur.selectionStart,cur.selectionEnd,'end');
+ cur.dispatchEvent(new Event('input',{bubbles:true}))};
+const isU=t=>KBon&&t.classList&&t.classList.contains('ur')&&t.closest&&t.closest('.edit')&&/^(INPUT|TEXTAREA)$/.test(t.tagName);
+document.addEventListener('focusin',e=>{const t=e.target;if(!/^(INPUT|TEXTAREA)$/.test(t.tagName))return;if(isU(t)){cur=t;kbShow(1);setTimeout(()=>t.scrollIntoView({block:'center'}),150)}else kbShow(0)});
+document.addEventListener('click',e=>{if(isU(e.target)){cur=e.target;kbShow(1)}});
+function applyIM(){document.querySelectorAll('.edit .ur').forEach(e=>{e.lang='ur';if(KBon)e.inputMode='none';else e.removeAttribute('inputmode')})}
+function kbTog(){KBon=!KBon;$('kbt').textContent='⌨ اردو: '+(KBon?'auto':'off');if(!KBon)kbShow(0);applyIM()}
+async function useFont(u){const f=new FontFace('Jameel Noori Nastaleeq',`url(${u})`);await f.load();document.fonts.add(f)}
+try{const u=localStorage.getItem('tmfont');if(u)useFont(u).catch(()=>{})}catch(e){}
+function fontPick(){const i=document.createElement('input');i.type='file';i.accept='.ttf,.otf,.woff,.woff2';i.onchange=()=>{if(!i.files[0])return;const r=new FileReader();r.onload=()=>useFont(r.result).then(()=>{try{localStorage.setItem('tmfont',r.result)}catch(e){}$('bk').value='Font loaded.'}).catch(()=>{$('bk').value='Could not load this font file.'});r.readAsDataURL(i.files[0])};i.click()}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,vt=null;const mic=$('mic');
+function msg(s){const t=$('toast');t.textContent=s;t.style.display='block';clearTimeout(msg.T);msg.T=setTimeout(()=>t.style.display='none',3500)}
+document.addEventListener('focusin',e=>{const t=e.target;if(/^(INPUT|TEXTAREA)$/.test(t.tagName)&&t.closest('.edit')&&!/^(number|radio|checkbox)$/.test(t.type)){if(t!==vt&&rec)rec.stop();vt=t;mic.classList.add('on')}else if(!rec){vt=null;mic.classList.remove('on')}});
+mic.onmousedown=e=>e.preventDefault();
+mic.onclick=()=>{if(rec){rec.stop();return}if(!SR)return msg('Voice typing needs Chrome or Edge.');const t=vt;if(!t)return;
+ const r=new SR();r.lang=t.classList.contains('ur')?'ur-PK':'en-US';r.continuous=true;r.interimResults=false;
+ r.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal){const s=e.results[i][0].transcript.trim(),a=t.selectionStart,z=t.selectionEnd,sp=a>0&&!/\s$/.test(t.value.slice(0,a))?' ':'';t.setRangeText(sp+s,a,z,'end');t.dispatchEvent(new Event('input',{bubbles:true}))}};
+ r.onerror=e=>msg(e.error=='not-allowed'||e.error=='service-not-allowed'?'Microphone blocked. Allow mic access for this page.':'Voice error: '+e.error);
+ r.onend=()=>{rec=null;mic.classList.remove('rec')};
+ rec=r;mic.classList.add('rec');msg(t.classList.contains('ur')?'Listening (Urdu)… tap 🎤 to stop':'Listening (English)… tap 🎤 to stop');try{r.start()}catch(x){rec=null;mic.classList.remove('rec')}};
+let nwT;function nw(){const b=$('nw');if(b.dataset.s){D={meta:{...sample().meta,school:'',schoolU:'',title:'',titleU:''},sec:sample().sec,qs:[]};save();init();b.textContent='New test';delete b.dataset.s;return}
+ b.dataset.s=1;b.textContent='Click again to clear all';clearTimeout(nwT);nwT=setTimeout(()=>{b.textContent='New test';delete b.dataset.s},3000)}
+init();
+</script></body></html>
